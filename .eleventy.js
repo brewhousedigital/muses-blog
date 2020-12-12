@@ -28,10 +28,6 @@ module.exports = function(eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
 	});
 
-	// https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-	});
 
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
@@ -41,6 +37,8 @@ module.exports = function(eleventyConfig) {
 
 		return array.slice(0, n);
 	});
+
+
 
 	eleventyConfig.addCollection("tagList", function(collection) {
 		let tagSet = new Set();
@@ -71,6 +69,75 @@ module.exports = function(eleventyConfig) {
 		return [...tagSet];
 	});
 
+	eleventyConfig.addCollection("tagListCloud", function(collection) {
+		let tagSet = new Set();
+		collection.getAll().forEach(function(item) {
+			if( "tags" in item.data ) {
+				let tags = item.data.tags;
+
+				tags = tags.filter(function(item) {
+					switch(item) {
+						// this list should match the `filter` list in tags.njk
+						case "all":
+						case "nav":
+						case "post":
+						case "posts":
+
+						// Authors
+						case "colin":
+						case "damon":
+						case "steve":
+						case "zach":
+							return false;
+					}
+
+					return true;
+				});
+
+				for (const tag of tags) {
+					tagSet.add(tag);
+				}
+			}
+		});
+
+		// returning an array in addCollection works in Eleventy 0.5.3
+		// Arrays and sets are not the same. have to convert to an array
+		tagSet = Array.from(tagSet).sort();
+		return tagSet;
+	});
+
+	eleventyConfig.addCollection("tagListAuthors", function(collection) {
+		let tagSet = new Set();
+
+		collection.getAll().forEach(function(item) {
+			if( "tags" in item.data ) {
+				let tags = item.data.tags;
+
+				tags = tags.filter(function(item) {
+					switch(item) {
+						// this list should match the `filter` list in tags.njk
+						case "colin":
+						case "damon":
+						case "steve":
+						case "zach":
+							return true;
+					}
+
+					return false;
+				});
+
+				for (const tag of tags) {
+					tagSet.add(tag);
+				}
+			}
+		});
+
+		// returning an array in addCollection works in Eleventy 0.5.3
+		// Arrays and sets are not the same. have to convert to an array
+		tagSet = Array.from(tagSet).sort();
+		return tagSet;
+	});
+
 
 
 
@@ -93,7 +160,51 @@ module.exports = function(eleventyConfig) {
 		return DateTime.local().toFormat("yyyy");
 	});
 
+	eleventyConfig.addShortcode("embedVideo", function(
+		videoType = "",
+		videoID = "",
+		sourceURL = "",
+		videoCover = ""
+	) {
+		let url = "";
 
+		if(videoType === "youtube") {
+			url = "<div class='embed-container'><iframe src='https://www.youtube-nocookie.com/embed/" + videoID + "' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>";
+
+		} else if(videoType === "curiositystream") {
+			url = "<div><a href='" + sourceURL + "' target='_blank' rel='noopener'><img src='" + videoCover + "' alt='' class='border-radius-20 img-fluid'></a></div>";
+		} else if(videoType === "pbs") {
+			url = `
+            <div class="pbs-viral-player-wrapper" style="position: relative; padding-top: calc(56.25% + 43px);"><iframe src="https://player.pbs.org/viralplayer/${videoID}/" allowfullscreen style="position: absolute; top: 0; width: 100%; height: 100%; border: 0;"></iframe></div>
+            `;
+		}
+
+		return url;
+	});
+
+	eleventyConfig.addShortcode("alert", function(content) {
+		return `
+            <div class='d-flex align-items-center font-weight-bold px-3 border mb-5'>
+                <span class='font-50 mr-3'>!</span>
+                <span>${content}</span>
+            </div>`;
+	});
+
+	eleventyConfig.addFilter("readableDateString", dateObj => {
+		return DateTime.fromISO(dateObj, {zone: 'utc'}).toFormat("LLL dd, yyyy");
+	});
+
+	eleventyConfig.addFilter("getArrayFromObject", function(object) {
+		return JSON.stringify(Object.values(object));
+	});
+
+	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+	});
+
+	eleventyConfig.addFilter('htmlDateStringString', (dateObj) => {
+		return DateTime.fromISO(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+	});
 
 
 

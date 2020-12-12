@@ -11,26 +11,49 @@
 
 	{% include "source/_includes/components/head-css-tags.njk" %}
 </head>
-<body>
+<body class="dark">
 
-<header class="container">
-	<div class="row justify-content-between py-3 mb-5">
-		<h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+<div class="night-container">
+	<div class="night">
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+		<div class="shooting_star"></div>
+	</div><!-- end night -->
+</div><!-- end night container -->
 
-		<div>
-			<a href="/posts/" class="btn btn-primary">Posts</a>
-			<a href="/about/" class="btn btn-primary">About</a>
-		</div>
-	</div><!-- end row -->
-</header><!-- end container -->
 
-<main>
+<header class="container border-bottom mb-5 py-3 px-0 text-center">
+	<h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+
+	<a href="/" class="btn font-weight-bold">Home</a>
+	<a href="/about/" class="btn font-weight-bold">About</a>
+	<a href="/posts/" class="btn font-weight-bold">Posts</a>
+	<a href="/tags/" class="btn font-weight-bold">Tags</a>
+	<a href="/resources/" class="btn font-weight-bold">Resources</a>
+</header>
+
+
+
+<main class="container">
 	{{ content | safe }}
 </main>
-
-<footer></footer>
-
-
 
 {% include "source/_includes/components/footer-js-tags.njk" %}
 

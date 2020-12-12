@@ -1,5 +1,20 @@
 {
-	"title": "Eleventy Website Template",
-	"url": "https://eleventy-website-template.netlify.app",
-	"description": "A starter repository showing how to build a website with the Eleventy static site generator."
+  "title": "The Muses",
+  "url": "https://muses.brewhouse.digital",
+  "description": "The Muses are the inspirational goddesses of literature, science, and the arts. They were considered the source of the knowledge embodied in the poetry, lyric songs, and myths.",
+  "feed": {
+    "subtitle": "For the pursuit of knowledge",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://muses.brewhouse.digital"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://muses.brewhouse.digital/feed/feed.json"
+  },
+  "author": {
+    "name": "Brewhouse Digital",
+    "email": "zach@brewhouse.digital",
+    "url": "https://www.brewhouse.digital"
+  }
 }

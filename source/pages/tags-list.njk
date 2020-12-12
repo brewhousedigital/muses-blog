@@ -1,14 +1,22 @@
 ---
 permalink: /tags/
-title: "All Tags"
 layout: layouts/base.njk
 ---
 
-<div class="container">
-	<h1>Tags</h1>
+<div class="page-tag-list mb-5">
+    <h1>Tags</h1>
+    {% for tag in collections.tagListCloud %}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+    {% endfor %}
+</div><!-- end margin -->
 
-	{% for tag in collections.tagList %}
-		{% set tagUrl %}/tags/{{ tag }}/{% endset %}
-		<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-	{% endfor %}
-</div><!-- end container -->
+
+<div class="page-tag-list mb-5">
+    <h1>Contributors</h1>
+    {% for tag in collections.tagListAuthors %}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+    {% endfor %}
+</div><!-- end margin -->
+

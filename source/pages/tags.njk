@@ -12,15 +12,18 @@ pagination:
   addAllPagesToCollections: true
 layout: layouts/base.njk
 eleventyComputed:
-  title: "Tagged “{{ tag }}”"
+  title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag }}/
 ---
 
-<div class="container">
-	<h1>Tagged “{{ tag }}”</h1>
+{% if tag == "colin" or tag == "damon" or tag == "steve" or tag == "zach" %}
+    <h1>Videos from <span class="post-tag">{{ tag }}</span></h1>
+{% else %}
+    <h1>Tagged “<span class="post-tag">{{ tag }}</span>”</h1>
+{% endif %}
 
-	{% set postslist = collections[ tag ] %}
-	{% include "postslist.njk" %}
 
-	<p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
-</div><!-- end container -->
+{% set postslist = collections[ tag ] %}
+{% include "postslist.njk" %}
+
+<p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>

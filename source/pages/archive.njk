@@ -1,12 +1,9 @@
 ---
 layout: layouts/base.njk
-title: "All Blogs"
 permalink: /posts/
 ---
 
-<div class="container">
-	<h1>Archive</h1>
+<h1>All Posts</h1>
 
-	{% set postslist = collections.posts %}
-	{% include "postslist.njk" %}
-</div><!-- end container -->
+{% set postslist = collections.posts %}
+{% include "postslist.njk" %}

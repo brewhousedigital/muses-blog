@@ -87,6 +87,7 @@ module.exports = function(eleventyConfig) {
 						case "colin":
 						case "damon":
 						case "steve":
+						case "sydney":
 						case "zach":
 							return false;
 					}
@@ -119,6 +120,7 @@ module.exports = function(eleventyConfig) {
 						case "colin":
 						case "damon":
 						case "steve":
+						case "sydney":
 						case "zach":
 							return true;
 					}

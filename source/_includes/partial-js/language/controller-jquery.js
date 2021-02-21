@@ -358,7 +358,7 @@ $(document).ready(function() {
     for(let i = 0; i < langArray.length; i++) {
         let lessonNumber = i + 1;
         let italianWord = "" +
-            "<div class='col-6 text-right py-2' data-toggle='tooltip' data-placement='left' title='Lesson " + lessonNumber + "'>" +
+            "<div class='col-6 text-end py-2' data-toggle='tooltip' data-placement='left' title='Lesson " + lessonNumber + "'>" +
             langArray[i][1] +
             "</div>";
         let englishWord = "<div class='col-6 py-2'>" + langArray[i][0] + "</div>";

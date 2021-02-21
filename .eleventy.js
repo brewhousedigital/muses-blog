@@ -185,7 +185,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addShortcode("alert", function(content) {
 		return `
             <div class='d-flex align-items-center font-weight-bold px-3 border mb-5'>
-                <span class='font-50 mr-3'>!</span>
+                <span class='font-50 me-3'>!</span>
                 <span>${content}</span>
             </div>`;
 	});

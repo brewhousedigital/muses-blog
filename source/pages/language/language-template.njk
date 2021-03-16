@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: "Italian Learning"
+permalink: /language/template/
+---
+
+<h1 class="mb-5">Language Learning: Vocab Template</h1>
+
+<div id="lessons-block" class="row justify-content-between pb-5 mb-5">
+	<div class="col-xl-5">
+		<h2>Copy list into Excel</h2>
+		<p class="mb-5">You can copy this entire list into excel in one column, and put the translated word(s) into the second column.</p>
+
+		{% for word in language.template %}
+			<p>{{ word.en }}</p>
+		{% endfor %}
+	</div><!-- end col -->
+
+	<div class="col-xl-5">
+		<h2>Create your own JSON file</h2>
+		<p class="mb-5">Or you can fill out your own JSON file and send that over too. The "en" stands for english. So you would put the translated word into the "translated" value.</p>
+
+		<pre><code>{% include "source/_data/language/template.json" %}</code></pre>
+	</div><!-- end col -->
+</div><!-- end lesson block -->

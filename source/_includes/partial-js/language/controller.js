@@ -186,7 +186,7 @@ function textToSpeech() {
     if(firstWord.includes(", ")) {
         firstWord = firstWord.replace(", ", " . . . ");
     } else {
-        firstWord = firstWord + " . . ";
+        //firstWord = firstWord + " . . ";
     }
 
     // Fire it up!

@@ -1,0 +1,18 @@
+.highlight-language-text[data-lang="it"] {color: #2ecc71;}
+.highlight-language-text[data-lang="it"] span {color: #c0392b;}
+
+.highlight-language-text[data-lang="fr"] {color: #c0392b;}
+.highlight-language-text[data-lang="fr"] span {color: #3498db;}
+
+
+#flashcard-modal-content svg {
+	max-width: 30px;
+	border-radius: 6px;
+}
+
+
+@media (min-width: 1200px) {
+	#lessons-block .col-xl-20 {
+		width: 20%;
+	}
+}

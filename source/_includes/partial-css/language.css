@@ -4,6 +4,9 @@
 .highlight-language-text[data-lang="fr"] {color: #c0392b;}
 .highlight-language-text[data-lang="fr"] span {color: #3498db;}
 
+.highlight-language-text[data-lang="es"] {color: #f1c40f;}
+.highlight-language-text[data-lang="es"] span {color: #c0392b;}
+
 
 #flashcard-modal-content svg {
 	max-width: 30px;

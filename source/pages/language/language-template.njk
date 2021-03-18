@@ -7,13 +7,84 @@ permalink: /language/template/
 <h1 class="mb-5">Language Learning: Vocab Template</h1>
 
 <div id="lessons-block" class="row justify-content-between pb-5 mb-5">
-	<div class="col-xl-5">
-		<h2>Copy list into Excel</h2>
-		<p class="mb-5">You can copy this entire list into excel in one column, and put the translated word(s) into the second column.</p>
+	<div class="col-xl-6">
+		<h2 class="mb-3">Copy list into Excel</h2>
 
-		{% for word in language.template %}
-			<p>{{ word.en }}</p>
-		{% endfor %}
+
+		<div class="row">
+			<div class="col-6">
+				<p class="mb-5">You can copy this entire list into google sheets in one column, and put the translated word(s) into the second column. You can set this to auto translate with the function <code>=GOOGLETRANSLATE(A1, "en", "it")</code> where "it" is your new language code.</p>
+				<pre>
+			<code>
+{% for word in language.template %}
+{{ word.en }}{% endfor %}
+			</code>
+		</pre>
+			</div><!-- end col -->
+
+			<div class="col-6">
+				<p class="mb-5">The column to the left is dynamically generated. you'll need to replace the numbers with the spelled-out format</p>
+				<pre><code>
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+twenty one
+twenty two
+thirty
+thirty one
+thirty two
+fourty
+forty one
+forty two
+fifty
+fifty one
+fifty two
+sixty
+sixty one
+sixty two
+seventy
+seventy one
+seventy two
+eighty
+eighty one
+eighty two
+ninety
+ninety one
+ninety two
+one hundred
+one hundred one
+one hundred two
+one hundred ten
+one hundred eleven
+one thousand
+one thousand one
+ten thousand
+one hundred thousand
+first
+second
+third
+fourth
+fifth</code></pre>
+			</div><!-- end col -->
+		</div><!-- end row -->
 	</div><!-- end col -->
 
 	<div class="col-xl-5">

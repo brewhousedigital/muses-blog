@@ -541,7 +541,7 @@
     {"en": "season", "new": "stagione"},
     {"en": "second ", "new": "secondo, seconda"},
     {"en": "secretary", "new": "segretario, segretaria"},
-    {"en": "see (a bird)", "new": "vedere, vedo un uccello"},
+    {"en": "see (a bird)", "new": "vedere"},
     {"en": "seed", "new": "seme"},
     {"en": "to seed a farm", "new": "seminare, io semino la fattoria"},
     {"en": "to sell", "new": "vendere"},
@@ -556,6 +556,7 @@
     {"en": "ship", "new": "nave"},
     {"en": "shoe", "new": "scarpa"},
     {"en": "shirt", "new": "camicia"},
+	{"en": "I see a bird", "new": "vedo un uccello"},
     {"en": "shoes", "new": "scarpe"},
     {"en": "shoot (a gun)", "new": "sparare"},
     {"en": "short", "new": "corto, corta"},
@@ -701,7 +702,7 @@
 	{"en": "year", "new": "anno"},
 	{"en": "yellow", "new": "giallo"},
 	{"en": "yes", "new": "sì"},
-	{"en": "you (singular)", "new": "voi (singolare)"},
-	{"en": "you all", "new": "voi tutti"},
+	{"en": "you all", "new": "voi"},
+	{"en": "Hi everyone", "new": "ciao a tutti"},
 	{"en": "young", "new": "giovane"}
 ]

@@ -590,7 +590,6 @@
 	{"en": "soup", "new": "minestra, zuppa"},
 	{"en": "south", "new": "Sud"},
 	{"en": "space (outer space)", "new": "spazio cosmico"},
-	{"en": "to speak/say", "new": "parlare"},
 	{"en": "spoon", "new": "cucchiaio"},
 	{"en": "sport", "new": "sport"},
 	{"en": "Spring", "new": "Primavera"},
@@ -704,5 +703,26 @@
 	{"en": "yes", "new": "sì"},
 	{"en": "you all", "new": "voi"},
 	{"en": "Hi everyone", "new": "ciao a tutti"},
-	{"en": "young", "new": "giovane"}
+	{"en": "young", "new": "giovane"},
+
+
+
+	{"en": "Where is my english book?", "new": "Dov'è il mio libro di inglese?"},
+	{"en": "I have an important exam this morning", "new": "Ho un esame importante stamattina"},
+	{"en": "I need my book", "new": "Mi serve il libro"},
+	{"en": "Your book is here on the table", "new": "il tuo libro è qui sul tavolo"},
+	{"en": "I am tired", "new": "Sono stanca"},
+	{"en": "Would you like a coffee?", "new": "Ti va un caffè?"},
+	{"en": "Nasty!", "new": "Che schifo!"},
+	{"en": "You are really tired", "new": "Sei proprio stanca"},
+	{"en": "I have need of another cup of coffee", "new": "Ho bisogno di un'altra tazzina di caffè"},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""},
+	{"en": "", "new": ""}
+
 ]

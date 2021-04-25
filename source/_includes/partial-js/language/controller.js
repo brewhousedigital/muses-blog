@@ -132,26 +132,63 @@ function flashcards(modal, element, type) {
 
         cardTotal = newCardsArray.length;
 
-    } else if(thisLesson > cardTotal) {
-        // Grab the previous 10
-        for(let i = thisLesson; i > thisLesson - cardReviewTotal; i--) {
+    } else if(type === "all") {
+		// Grab highest lesson completed
+		let highestLesson = completedLessonsList[completedLessonsList.length - 1];
+
+		// Reset card total to all so we get more to review
+		cardTotal = highestLesson;
+
+		// Grab everything else into its own array
+		for(let i = 1; i <= highestLesson; i++) {
+			oldCardsArray.push(wordList[i]);
+		}
+
+		// Shuffle the remaining deck in a random order
+		shuffleArray(oldCardsArray);
+
+		// Take the number of random cards and put them into the new deck
+		for (let i = 0; i < oldCardsArray.length; i++) {
+			newCardsArray.push(oldCardsArray[i]);
+		}
+
+		cardTotal = newCardsArray.length;
+
+	} else if(type === "fifty") {
+		// Grab highest lesson completed
+		let highestLesson = completedLessonsList[completedLessonsList.length - 1];
+
+		// Reset card total to 50 so we get more to review
+		cardTotal = 50;
+
+        // Grab the previous 50
+        for(let i = highestLesson; i > highestLesson - cardTotal; i--) {
             newCardsArray.push(wordList[i]);
         }
 
-        // Grab everything else into its own array
-        for(let i = 0; i <= thisLesson - cardReviewTotal; i++) {
-            oldCardsArray.push(wordList[i]);
-        }
-
         // Shuffle the remaining deck in a random order
-        shuffleArray(oldCardsArray);
+        shuffleArray(newCardsArray);
 
-        // Choose 5 cards oldCardsArray and add it to the newCardsArray to make 15 total cards.
-        for(let i = oldCardsArray.length - 1; i > oldCardsArray.length - (cardTotal - cardReviewTotal + 1); i--) {
-            newCardsArray.push(oldCardsArray[i]);
-        }
+    } else if(thisLesson > cardTotal) {
+		// Grab the previous 10
+		for(let i = thisLesson; i > thisLesson - cardReviewTotal; i--) {
+			newCardsArray.push(wordList[i]);
+		}
 
-    } else {
+		// Grab everything else into its own array
+		for(let i = 0; i <= thisLesson - cardReviewTotal; i++) {
+			oldCardsArray.push(wordList[i]);
+		}
+
+		// Shuffle the remaining deck in a random order
+		shuffleArray(oldCardsArray);
+
+		// Choose 5 cards oldCardsArray and add it to the newCardsArray to make 15 total cards.
+		for(let i = oldCardsArray.length - 1; i > oldCardsArray.length - (cardTotal - cardReviewTotal + 1); i--) {
+			newCardsArray.push(oldCardsArray[i]);
+		}
+
+	} else {
         for(let i = 0; i < thisLesson; i++) {
             newCardsArray.push(wordList[i]);
         }
@@ -316,7 +353,11 @@ MicroModal.init({
 
         if(element.classList.contains("review-random")) {
             flashcards(modal, element, "random");
-        } else {
+        } else if(element.classList.contains("review-all")) {
+			flashcards(modal, element, "all");
+		} else if(element.classList.contains("review-50")) {
+			flashcards(modal, element, "fifty");
+		} else {
             flashcards(modal, element, "lesson");
         }
 

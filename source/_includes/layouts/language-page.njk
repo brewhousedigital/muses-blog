@@ -110,8 +110,24 @@ permalink: /language/{{ type }}/
 </div>
 
 
-<button class="btn btn-success review-random position-sticky w-100 font-50 mb-5 d-block"
-		data-micromodal-trigger="flashcard-modal">🏋️‍♂</button>
+<style>
+	#language-footer-bar {
+		background-color: #000;
+	}
+
+	#language-footer-bar button {
+		font-weight: bold;
+		font-size: 20px;
+	}
+</style>
+
+<div id="language-footer-bar" class="sticky-bottom d-flex justify-content-around p-4">
+	<button class="btn btn-success mx-2 review-random" data-micromodal-trigger="flashcard-modal">Practice 15 Random Words</button>
+	<button class="btn btn-danger mx-2 review-all" data-micromodal-trigger="flashcard-modal">Practice All Words</button>
+
+	<button class="btn btn-warning mx-2 review-50" data-micromodal-trigger="flashcard-modal">Practice Last 50</button>
+</div><!-- end footer bar -->
+
 
 
 

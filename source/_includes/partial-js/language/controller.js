@@ -233,9 +233,10 @@ function textToSpeech() {
 
 // Flip flash card on guess
 function flipFlashCard(el) {
-    el.parentNode.parentNode.querySelector(".answer").style.opacity = "1";
-    el.parentNode.querySelector(".correct-answer").disabled = false;
-    el.parentNode.querySelector(".wrong-answer").disabled = false;
+	let card = el.closest(".flash-card");
+    card.querySelector(".answer").style.opacity = "1";
+    card.querySelector(".correct-answer").disabled = false;
+    card.querySelector(".wrong-answer").disabled = false;
 
     textToSpeech();
 }
@@ -243,10 +244,13 @@ function flipFlashCard(el) {
 // Complete current card and show the next one
 function completeFlashCard(el) {
     // Remove current card
-    el.parentNode.parentNode.parentNode.parentNode.remove();
+    el.closest(".flash-card").remove();
 
     // Show the next card
     let cards = document.querySelectorAll(".flash-card");
+
+    // Show the remaining cards in console
+	console.log("Cards Remaining:", cards.length)
 
     // If that was the last card, show the "Finito" message
     if(cards.length > 0) {
@@ -259,7 +263,7 @@ function completeFlashCard(el) {
 // Send current card to the back and show the next one
 function redoFlashCard(el) {
     // Copy the card and send it to the back
-    let card = el.parentNode.parentNode.parentNode.parentNode;
+	let card = el.closest(".flash-card");
     card.style.display = "none";
     card.querySelector(".answer").style.opacity = "0";
 

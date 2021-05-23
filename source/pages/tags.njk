@@ -16,20 +16,16 @@ eleventyComputed:
 permalink: /tags/{{ tag }}/
 ---
 
-{% if
-	tag == "colin" or
-	tag == "damon" or
-	tag == "steve" or
-	tag == "debra" or
-	tag == "sydney" or
-	tag == "zach" %}
-    <h1>Videos from <span class="post-tag">{{ tag }}</span></h1>
+{% set postslist = collections[ tag ] %}
+
+{% if tag in ["colin", "damon", "steve", "debra", "sydney", "zach"] %}
+    <h1>{{ postslist.length }} Video{{ "s" if postslist.length > 1 }} from <span class="post-tag">{{ tag }}</span></h1>
 {% else %}
-    <h1>Tagged “<span class="post-tag">{{ tag }}</span>”</h1>
+    <h1>{{ postslist.length }} Video{{ "s" if postslist.length > 1 }} tagged “<span class="post-tag">{{ tag }}</span>”</h1>
 {% endif %}
 
 
-{% set postslist = collections[ tag ] %}
+
 {% include "postslist.njk" %}
 
 <p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>

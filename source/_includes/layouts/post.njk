@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 templateClass: tmpl-post
+permalink: "posts/{{ title|slugURL }}-{{ date|slugURL }}/index.html"
 ---
 <h1 class="mb-3">{{ title }}</h1>
 
@@ -9,8 +10,8 @@ templateClass: tmpl-post
 </div>
 
 
-<div class="d-flex flex-wrap align-items-center justify-content-between text-lg-start text-center pb-5 border-bottom mb-5 mx-0">
-	<div class="col-lg-auto mb-lg-0 mb-5">
+<div class="text-center pb-5 border-bottom mb-5">
+	<div class="mb-5">
 		<div><time datetime="{{ date|htmlDateStringString }}">Posted on {{ "20200726"|readableDateString }}</time></div>
 		<div class="post-tags">
 			<span class="d-inline-block">Tags: </span>
@@ -21,13 +22,13 @@ templateClass: tmpl-post
 				{%- endif -%}
 			{% endfor %}
 		</div><!-- end post tags -->
-	</div><!-- end col -->
+	</div>
 
-	<div class="col-lg-auto text-lg-end">
+	<div class="">
 		<button class="btn btn-primary share-post-btn">🙏 Share 🙏</button>
 		<p class="share-status-container"></p>
-	</div><!-- end col -->
-</div><!-- end row -->
+	</div>
+</div>
 
 
 <div class="d-flex justify-content-between align-items-center mb-5">

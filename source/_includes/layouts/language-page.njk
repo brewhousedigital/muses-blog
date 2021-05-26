@@ -130,11 +130,30 @@ permalink: /language/{{ type }}/
 
 
 
-
+<style>
+	#modal-progress-bar {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 8px;
+		background-color: #000;
+		border-radius: 0;
+	}
+</style>
 {# Flashcard Modal #}
 <div id="flashcard-modal" class="modal micromodal-slide" aria-hidden="true">
 	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
-		<div class="modal__container" role="dialog" aria-modal="true">
+		<div class="modal__container position-relative" role="dialog" aria-modal="true">
+			<div id="modal-progress-bar" class="progress">
+				<div class="progress-bar"
+					 role="progressbar"
+					 style="width: 0%"
+					 aria-valuenow="0"
+					 aria-valuemin="1"
+					 aria-valuemax="1"></div>
+			</div>
+
 			<div id="flashcard-modal-content" class="text-center"></div>
 
 			<div class="text-center"><button class="btn" data-micromodal-close>Close</button></div>

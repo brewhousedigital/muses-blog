@@ -205,6 +205,11 @@ function flashcards(modal, element, type) {
         template_card(modalBody, newCardsArray[i][0], newCardsArray[i][1])
     }
 
+	let bar = document.querySelector("#modal-progress-bar .progress-bar");
+	bar.setAttribute("aria-valuemax", String(newCardsArray.length));
+	bar.style.width = "0%";
+	bar.setAttribute("aria-valuenow", "1")
+
     let firstChild = modalBody.firstElementChild;
     firstChild.style.display = "block";
 }
@@ -248,6 +253,13 @@ function completeFlashCard(el) {
 
     // Show the next card
     let cards = document.querySelectorAll(".flash-card");
+
+    let bar = document.querySelector("#modal-progress-bar .progress-bar");
+    let barMax = parseInt(bar.getAttribute("aria-valuemax"));
+    let barCompleted = barMax - cards.length;
+    let barPercentComplete = Math.round((barCompleted / barMax) * 100);
+	bar.style.width = barPercentComplete + "%";
+	bar.setAttribute("aria-valuenow", String(barCompleted))
 
     // Show the remaining cards in console
 	console.log("Cards Remaining:", cards.length)

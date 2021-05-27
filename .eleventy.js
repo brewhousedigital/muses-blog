@@ -225,6 +225,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({"source/robots.txt": "robots.txt"});
 	/*eleventyConfig.addPassthroughCopy({"source/_includes/partial-css/bootstrap.css": "css/bootstrap.css"});*/
 	eleventyConfig.addPassthroughCopy({"source/_includes/partial-js/bootstrap.js": "js/bootstrap.js"});
+	eleventyConfig.addPassthroughCopy({"source/_data/language/italian.json": "js/iiufhiugheirugfhgi.json"});
 
 
 

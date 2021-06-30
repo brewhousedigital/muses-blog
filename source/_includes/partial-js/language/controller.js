@@ -371,6 +371,10 @@ const keyboardShortcuts = (event) => {
 	let correctBtn = currentWindow.querySelector(".correct-answer");
 	let wrongBtn = currentWindow.querySelector(".wrong-answer");
 
+	if(event.key === "ArrowUp") {
+		checkBtn.click()
+	}
+
 	if(event.key === "ArrowRight") {
 		correctBtn.disabled ? checkBtn.click() : correctBtn.click()
 	}

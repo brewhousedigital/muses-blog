@@ -278,6 +278,8 @@ function redoFlashCard(el) {
 	let card = el.closest(".flash-card");
     card.style.display = "none";
     card.querySelector(".answer").style.opacity = "0";
+	card.querySelector(".correct-answer").disabled = true;
+	card.querySelector(".wrong-answer").disabled = true;
 
     document.getElementById("flashcard-modal-content").insertBefore(card, null);
 

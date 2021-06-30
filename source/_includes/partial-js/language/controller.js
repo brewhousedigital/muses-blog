@@ -364,6 +364,23 @@ lessonCheckboxes.forEach(function(el) {
     });
 });
 
+
+const keyboardShortcuts = (event) => {
+	let currentWindow = document.querySelector("#flashcard-modal-content > .flash-card")
+	let checkBtn = currentWindow.querySelector(".check-answer");
+	let correctBtn = currentWindow.querySelector(".correct-answer");
+	let wrongBtn = currentWindow.querySelector(".wrong-answer");
+
+	if(event.key === "ArrowRight") {
+		correctBtn.disabled ? checkBtn.click() : correctBtn.click()
+	}
+
+	if(event.key === "ArrowDown") {
+		wrongBtn.click()
+	}
+}
+
+
 MicroModal.init({
     onShow: function(modal,element) {
 
@@ -376,7 +393,6 @@ MicroModal.init({
 		} else {
             flashcards(modal, element, "lesson");
         }
-
 
         let allCheckBtns = document.querySelectorAll(".check-answer");
         let allCorrectBtns = document.querySelectorAll(".correct-answer");
@@ -393,5 +409,11 @@ MicroModal.init({
         allWrongBtns.forEach(function(el) {
             el.addEventListener("click", function() {redoFlashCard(this);});
         });
+
+		document.body.addEventListener("keyup", keyboardShortcuts)
+    },
+	onClose: (modal) => {
+    	// Removing keyboard shortcut
+		document.body.removeEventListener("keyup", keyboardShortcuts)
     }
-});
+})

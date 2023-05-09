@@ -7,6 +7,9 @@
 .highlight-language-text[data-lang="es"] {color: #f1c40f;}
 .highlight-language-text[data-lang="es"] span {color: #c0392b;}
 
+.highlight-language-text[data-lang="ko"] {color: #c62631;}
+.highlight-language-text[data-lang="ko"] span {color: #303c70;}
+
 
 #flashcard-modal-content svg {
 	max-width: 30px;
